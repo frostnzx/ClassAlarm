@@ -1,0 +1,16 @@
+body{
+    font-family:Mitr;
+}
+.image {
+    width: 30%;
+    height: 30%;
+}
+.classname{
+    font-size: 500%;
+}
+.clock{
+    font-size: 500%;
+}
+.space{
+    height: 120px;
+}
