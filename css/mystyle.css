@@ -1,0 +1,36 @@
+body{
+    font-family:Mitr;
+}
+.image {
+    width: 15%;
+    height: 15%;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+}
+.classname{
+    font-size: 500%;
+}
+.clock{
+    font-size: 500%;
+}
+.gotoclass{
+    display: inline-block;
+    width: 25%;
+    margin-bottom: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transform-origin: center;
+    transition-property: transform;
+    transition-duration: 1s;
+}
+.gotoclass:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.desc{
+    display: block;
+}
+#main{
+    
+}
