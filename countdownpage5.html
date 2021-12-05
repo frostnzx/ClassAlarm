@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="js/app5.js"></script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -15,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body onload="CountdownClock()">
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -23,7 +24,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="countdownpage.html">Countdown</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://meethub4-2.netlify.app/">Google meet</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Others</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -38,35 +41,30 @@
             </div>
         </nav>
         <!-- Page content-->
-        <div class="container" id="main">
+        <div class="container">
             <div class="text-center mt-5">
-                <h1 style="margin-bottom: 5px; margin-top: -30px;">Benjama Class Alarm</h1>
-                <p class="desc">จัดทำขึ้นเพื่อส่งงานในวิชา <b>IS</b> </p>
-                <img src="image/benicon.jpg" class="image">
-
-                <a href="countdownpage1.html" class="gotoclass">ม.4/1</a>
-                <a href="countdownpage2.html" class="gotoclass">ม.4/2</a>
-                <a href="countdownpage3.html" class="gotoclass">ม.4/3</a>
-                <a href="countdownpage4.html" class="gotoclass">ม.4/4</a>
-                <a href="countdownpage5.html" class="gotoclass">ม.4/5</a>
-                <a href="countdownpage6.html" class="gotoclass">ม.4/6</a>
-                <a href="#" class="gotoclass">ม.4/7</a>
-                <a href="#" class="gotoclass">ม.4/8</a>
-                <a href="#" class="gotoclass">ม.4/9</a>
-                <a href="#" class="gotoclass">ม.4/10</a>
-                <a href="#" class="gotoclass">ม.4/11</a>
-                <a href="#" class="gotoclass">ม.4/12</a>
+                <h3 class="datetime" id="datetimedisplayer"></h3>
+                <header class="classname" id="classname-display">วิชา : </header>
+                <div class="space"></div>
+                <h3>คาบนี้เหลือเวลาอีก</h3>
+    
+                <header class="clock" id="clockblock"></header>
+                <h3 id="nextclass"></h3>
             </div>
-            <footer class="py-3 my-4" style="margin: 0;">
-                <p class="text-center text-muted">© Siwakorn Sriveerakul / Phon Rattapichai / Warittorn Dalopakarn</p>
-              </footer>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/app5.js"></script>
 
 
+
+        <div class="container">
+            <footer class="py-3 my-4">
+              <p class="text-center text-muted">© Siwakorn Sriveerakul / Phon Rattapichai / Warittorn Dalopakarn</p>
+            </footer>
+        </div>
 
     </body>
 </html>
