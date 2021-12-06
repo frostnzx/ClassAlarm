@@ -39,7 +39,10 @@ function getClass(){
         ["ประวัติศาสตร์","คณิตเพิ่มเติม","ภาษาไทย","แนะแนว","พักเที่ยง","ภาษาอังกฤษ Teacher","ภาษาอังกฤษ","IS","IS"],
         ["ฟิสิกส์","ฟิสิกส์","การงาน","สังคม","พักเที่ยง","เคมี","เคมี","คณิตพิ้นฐาน","ว่าง"]
     ] 
-    if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
+    if (classnumber==99 || (day==0 || day==6)){
+        document.getElementById('clockblock').innerText = "00:00";
+        return "ไม่มีเรียน" ; 
+    }
     else return classlist[day][classnumber];
 }
 function getNextClass(){

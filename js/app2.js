@@ -68,7 +68,10 @@ function getNextClass(){
         ["คอมพิวเตอร์","คอมพิวเตอร์","ชีวะ","ชีวะ","พักเที่ยง","คณิตเพิ่มเติม","คณิตเพิ่มเติม","ประวัติศาสตร์","ภาษาอังกฤษ"],
         ["ภาษาอังกฤษ Teacher","คณิตพื้นฐาน","ฟิสิกส์","ฟิสิกส์","พักเที่ยง","ภาษาไทย","สังคม","ชีวะ","ว่าง"]
     ] 
-    if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
+    if (classnumber==99 || (day==0 || day==6)){
+        document.getElementById('clockblock').innerText = "00:00";
+        return "ไม่มีเรียน" ; 
+    }
     else return classlist[day][classnumber];
 }
 function CountdownClock(){
