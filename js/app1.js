@@ -47,7 +47,7 @@ function getNextClass(){
     var hours = rtClock.getHours();
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
-    var time = (60*hours)+minutes ;
+    var time = (60*hours)+minutes+50 ;
     
     var classnumber = 99 ; 
     if(time>=510 && time<560)classnumber=0 
@@ -69,7 +69,7 @@ function getNextClass(){
         ["ฟิสิกส์เพิ่มเติม","ฟิสิกส์เพิ่มเติม","ชีวะ","ชีวะ","พักเที่ยง","ภาษาอังกฤษ","คณิตเพิ่มเติม","คณิตเพิ่มเติม","นาฏศิลป์"]
     ] 
     if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
-    else return classlist[day][classnumber+1];
+    else return classlist[day][classnumber];
 }
 function CountdownClock(){
     var rtClock = new Date();
