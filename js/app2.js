@@ -11,7 +11,7 @@ function getClass(){
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
     var time = (60*hours)+minutes ;
-    
+    console.log("thedayis " + day)
     var classnumber = 99 ; 
     if(time>=510 && time<560)classnumber=0 
     else if(time>=560 && time<610)classnumber=1 
