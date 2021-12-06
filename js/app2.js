@@ -3,15 +3,17 @@ var dayname = ["วัน อาทิตย์","วัน จันทร์",
 var monthname = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
 "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"]
 
-
+var endtime = [560,610,660,710,760,810,860,910,960,1010];
 
 function getClass(){
     var rtClock = new Date();
     var hours = rtClock.getHours();
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
+    var seconds = rtClock.getSeconds();
     var time = (60*hours)+minutes ;
     var classnumber = 99 ; 
+    
     if(time>=510 && time<560)classnumber=0 
     else if(time>=560 && time<610)classnumber=1 
     else if(time>=610 && time<660)classnumber=2 
@@ -19,9 +21,15 @@ function getClass(){
     else if(time>=710 && time<760)classnumber=4 
     else if(time>=760 && time<810)classnumber=5 
     else if(time>=810 && time<860)classnumber=6 
-    else if(time>=860 && time<710)classnumber=7 
-    else if(time>=710 && time<760)classnumber=8 
-    else if(time>=760 && time<810)classnumber=9 
+    else if(time>=860 && time<910)classnumber=7 
+    else if(time>=910 && time<960)classnumber=8 
+
+    var minutesleft = endtime[classnumber]-time-1;
+    var secondsleft = 60-seconds-1
+    minutesleft = ("0" + minutesleft).slice(-2);
+    secondsleft = ("0" + secondsleft).slice(-2);
+
+    document.getElementById('clockblock').innerText = minutesleft + " : " + secondsleft + " นาที" ;
 
     var classlist = [
         [""],
@@ -40,7 +48,7 @@ function getNextClass(){
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
     var time = (60*hours)+minutes ;
-    console.log(day);
+
     var classnumber = 99 ; 
     if(time>=510 && time<560)classnumber=0 
     else if(time>=560 && time<610)classnumber=1 
@@ -49,9 +57,9 @@ function getNextClass(){
     else if(time>=710 && time<760)classnumber=4 
     else if(time>=760 && time<810)classnumber=5 
     else if(time>=810 && time<860)classnumber=6 
-    else if(time>=860 && time<710)classnumber=7 
-    else if(time>=710 && time<760)classnumber=8 
-    else if(time>=760 && time<810)classnumber=9 
+    else if(time>=860 && time<910)classnumber=7 
+    else if(time>=910 && time<960)classnumber=8 
+    else if(time>=960 && time<1010)classnumber=9 
 
     var classlist = [
         [""],
@@ -78,12 +86,7 @@ function CountdownClock(){
     var nextclassname = getNextClass();
 
     year+=543;
-    minutes = 60-minutes-1 ;
-    seconds = 60-seconds-1 ;
 
-    minutes = ("0" + minutes).slice(-2);
-    seconds = ("0" + seconds).slice(-2);
-    document.getElementById('clockblock').innerText = minutes + " : " + seconds + " นาที" ;
     document.getElementById('classname-display').innerText = "วิชา " + classname ;
     document.getElementById('datetimedisplayer').innerText = dayname[day] + " ที่ " + realdate + " " + monthname[month] + " " + year ;
     document.getElementById('nextclass').innerText = "คาบต่อไปคือ : " + nextclassname ;
