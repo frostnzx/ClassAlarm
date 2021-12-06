@@ -23,7 +23,6 @@ function getClass(){
     else if(time>=810 && time<860)classnumber=6 
     else if(time>=860 && time<910)classnumber=7 
     else if(time>=910 && time<960)classnumber=8 
-    else if(time>=960 && time<1010)classnumber=9 
 
     var minutesleft = endtime[classnumber]-time-1;
     var secondsleft = 60-seconds-1
@@ -60,7 +59,6 @@ function getNextClass(){
     else if(time>=810 && time<860)classnumber=6 
     else if(time>=860 && time<910)classnumber=7 
     else if(time>=910 && time<960)classnumber=8 
-    else if(time>=960 && time<1010)classnumber=9 
 
     var classlist = [
         [""],
