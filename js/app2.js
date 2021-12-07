@@ -24,6 +24,7 @@ function getClass(){
     else if(time>=860 && time<910)classnumber=7 
     else if(time>=910 && time<960)classnumber=8 
 
+
     var minutesleft = endtime[classnumber]-time-1;
     var secondsleft = 60-seconds-1
     minutesleft = ("0" + minutesleft).slice(-2);
@@ -39,7 +40,10 @@ function getClass(){
         ["คอมพิวเตอร์","คอมพิวเตอร์","ชีวะ","ชีวะ","พักเที่ยง","คณิตเพิ่มเติม","คณิตเพิ่มเติม","ประวัติศาสตร์","ภาษาอังกฤษ"],
         ["ภาษาอังกฤษ Teacher","คณิตพื้นฐาน","ฟิสิกส์","ฟิสิกส์","พักเที่ยง","ภาษาไทย","สังคม","ชีวะ","ว่าง"]
     ] 
-    if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
+    if (classnumber==99 || (day==0 || day==6)){
+        document.getElementById('clockblock').innerText = "00:00";
+        return "ไม่มีเรียน" ; 
+    }
     else return classlist[day][classnumber];
 }
 function getNextClass(){
@@ -68,10 +72,7 @@ function getNextClass(){
         ["คอมพิวเตอร์","คอมพิวเตอร์","ชีวะ","ชีวะ","พักเที่ยง","คณิตเพิ่มเติม","คณิตเพิ่มเติม","ประวัติศาสตร์","ภาษาอังกฤษ"],
         ["ภาษาอังกฤษ Teacher","คณิตพื้นฐาน","ฟิสิกส์","ฟิสิกส์","พักเที่ยง","ภาษาไทย","สังคม","ชีวะ","ว่าง"]
     ] 
-    if (classnumber==99 || (day==0 || day==6)){
-        document.getElementById('clockblock').innerText = "00:00";
-        return "ไม่มีเรียน" ; 
-    }
+    if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
     else return classlist[day][classnumber];
 }
 function CountdownClock(){
