@@ -3,16 +3,17 @@ var dayname = ["วัน อาทิตย์","วัน จันทร์",
 var monthname = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน",
 "กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"]
 
-
+var endtime = [560,610,660,710,760,810,860,910,960,1010];
 
 function getClass(){
     var rtClock = new Date();
     var hours = rtClock.getHours();
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
+    var seconds = rtClock.getSeconds();
     var time = (60*hours)+minutes ;
-    
     var classnumber = 99 ; 
+
     if(time>=510 && time<560)classnumber=0 
     else if(time>=560 && time<610)classnumber=1 
     else if(time>=610 && time<660)classnumber=2 
@@ -20,18 +21,28 @@ function getClass(){
     else if(time>=710 && time<760)classnumber=4 
     else if(time>=760 && time<810)classnumber=5 
     else if(time>=810 && time<860)classnumber=6 
-    else if(time>=860 && time<710)classnumber=7 
-    else if(time>=710 && time<760)classnumber=8 
-    else if(time>=760 && time<810)classnumber=9 
+    else if(time>=860 && time<910)classnumber=7 
+    else if(time>=910 && time<960)classnumber=8 
+
+    var minutesleft = endtime[classnumber]-time-1;
+    var secondsleft = 60-seconds-1
+    minutesleft = ("0" + minutesleft).slice(-2);
+    secondsleft = ("0" + secondsleft).slice(-2);
+
+    document.getElementById('clockblock').innerText = minutesleft + " : " + secondsleft + " นาที" ;
 
     var classlist = [
-        ["คอมพิวเตอร์","คอมพิวเตอร์","เคมี","เคมี","พักเที่ยง","คณิตพื้นฐาน","สังคม","ภาษาอังกฤษ Teacher","คณิตเพิ่มเติม"],
-        ["ชีวะ","ชีวะ","ภาษาอังกฤษ","คณิตเพิ่มเติม","พักเที่ยง","ฟิสิกส์","ฟิสิกส์","การงาน","ภาษาอังกฤษ"],
-        ["คณิตเพิ่มเติม","ว่าง","ภาษาอังกฤษ Teacher","เคมี","พักเที่ยง","ว่าง","ว่าง","ว่าง","ว่าง"],
-        ["ฟิสิกส์","ฟิสิกส์","ไทย","ภาษาอังกฤษ","พักเที่ยง","คณิตเพิ่มเติม","สังคม","ชีวะ","แนะแนว"],
-        ["คณิตพื้นฐาน","ภาษาอังกฤษ","ประวัติศาสตร์","นาฏศิลป์","พักเที่ยง","พละ","ภาษาไทย","IS","IS"]
+        [""],
+        ["คณิตเพิ่มเติม","คณิตเพิ่มเติม","ภาษาอังกฤษ","สังคม","พักเที่ยง","พละ","ชีวะ","ชีวะ","ว่าง"],
+        ["นาฏศิลป์","ภาษาไทย","คอมพิวเตอร์","คอมพิวเตอร์","พักเที่ยง","ฟิสิกส์","ฟิสิกส์","คณิตพื้นฐาน","ว่าง"],
+        ["เคมี","ภาษาอังกฤษ","ชีวะ","คณิตเพิ่มเติม","พักเที่ยง","ว่าง","ว่าง","ว่าง","ว่าง"],
+        ["ประวัติศาสตร์","คณิตเพิ่มเติม","ภาษาไทย","แนะแนว","พักเที่ยง","ภาษาอังกฤษ Teacher","ภาษาอังกฤษ","IS","IS"],
+        ["ฟิสิกส์","ฟิสิกส์","การงาน","สังคม","พักเที่ยง","เคมี","เคมี","คณิตพิ้นฐาน","ว่าง"]
     ] 
-    if (classnumber==99 && (day==0 || day==6))return "ไม่มีเรียน" ; 
+    if (classnumber==99 || (day==0 || day==6)){
+        document.getElementById('clockblock').innerText = "00:00";
+        return "ไม่มีเรียน" ; 
+    }
     else return classlist[day][classnumber];
 }
 function getNextClass(){
@@ -39,7 +50,7 @@ function getNextClass(){
     var hours = rtClock.getHours();
     var minutes = rtClock.getMinutes();
     var day = rtClock.getUTCDay();
-    var time = (60*hours)+minutes ;
+    var time = (60*hours)+minutes+50 ;
     
     var classnumber = 99 ; 
     if(time>=510 && time<560)classnumber=0 
@@ -49,19 +60,19 @@ function getNextClass(){
     else if(time>=710 && time<760)classnumber=4 
     else if(time>=760 && time<810)classnumber=5 
     else if(time>=810 && time<860)classnumber=6 
-    else if(time>=860 && time<710)classnumber=7 
-    else if(time>=710 && time<760)classnumber=8 
-    else if(time>=760 && time<810)classnumber=9 
+    else if(time>=860 && time<910)classnumber=7 
+    else if(time>=910 && time<960)classnumber=8 
 
     var classlist = [
-        ["คอมพิวเตอร์","คอมพิวเตอร์","เคมี","เคมี","พักเที่ยง","คณิตพื้นฐาน","สังคม","ภาษาอังกฤษ Teacher","คณิตเพิ่มเติม"],
-        ["ชีวะ","ชีวะ","ภาษาอังกฤษ","คณิตเพิ่มเติม","พักเที่ยง","ฟิสิกส์","ฟิสิกส์","การงาน","ภาษาอังกฤษ"],
-        ["คณิตเพิ่มเติม","ว่าง","ภาษาอังกฤษ Teacher","เคมี","พักเที่ยง","ว่าง","ว่าง","ว่าง","ว่าง"],
-        ["ฟิสิกส์","ฟิสิกส์","ไทย","ภาษาอังกฤษ","พักเที่ยง","คณิตเพิ่มเติม","สังคม","ชีวะ","แนะแนว"],
-        ["คณิตพื้นฐาน","ภาษาอังกฤษ","ประวัติศาสตร์","นาฏศิลป์","พักเที่ยง","พละ","ภาษาไทย","IS","IS"]
+        [""],
+        ["คณิตเพิ่มเติม","คณิตเพิ่มเติม","ภาษาอังกฤษ","สังคม","พักเที่ยง","พละ","ชีวะ","ชีวะ","ว่าง"],
+        ["นาฏศิลป์","ภาษาไทย","คอมพิวเตอร์","คอมพิวเตอร์","พักเที่ยง","ฟิสิกส์","ฟิสิกส์","คณิตพื้นฐาน","ว่าง"],
+        ["เคมี","ภาษาอังกฤษ","ชีวะ","คณิตเพิ่มเติม","พักเที่ยง","ว่าง","ว่าง","ว่าง","ว่าง"],
+        ["ประวัติศาสตร์","คณิตเพิ่มเติม","ภาษาไทย","แนะแนว","พักเที่ยง","ภาษาอังกฤษ Teacher","ภาษาอังกฤษ","IS","IS"],
+        ["ฟิสิกส์","ฟิสิกส์","การงาน","สังคม","พักเที่ยง","เคมี","เคมี","คณิตพิ้นฐาน","ว่าง"]
     ] 
-    if (classnumber==99 && (day==0 || day==6))return "ไม่มีเรียน" ; 
-    else return classlist[day][classnumber+1];
+    if (classnumber==99 || (day==0 || day==6))return "ไม่มีเรียน" ; 
+    else return classlist[day][classnumber];
 }
 function CountdownClock(){
     var rtClock = new Date();
@@ -77,12 +88,7 @@ function CountdownClock(){
     var nextclassname = getNextClass();
 
     year+=543;
-    minutes = 60-minutes-1 ;
-    seconds = 60-seconds-1 ;
 
-    minutes = ("0" + minutes).slice(-2);
-    seconds = ("0" + seconds).slice(-2);
-    document.getElementById('clockblock').innerText = minutes + " : " + seconds + " นาที" ;
     document.getElementById('classname-display').innerText = "วิชา " + classname ;
     document.getElementById('datetimedisplayer').innerText = dayname[day] + " ที่ " + realdate + " " + monthname[month] + " " + year ;
     document.getElementById('nextclass').innerText = "คาบต่อไปคือ : " + nextclassname ;
