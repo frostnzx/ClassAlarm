@@ -182,7 +182,7 @@ function ShowAlertTimeNotification() {
     {
         const ClassAlert = new Notification("คาบนี้จบแล้ว เริ่มเรียนคาบถัดไปได้!",
         {
-            body: "คาบต่อไปคือ " + name,
+            body: "คาบต่อไปคือ " + nextname,
             icon : "/ClassAlarm.png"
         })
     }
